@@ -55,6 +55,9 @@ spec:
 {{- if .Values.additionalVolumes }}
 {{- toYaml .Values.additionalVolumes | nindent 8 }}
 {{- end }}
+        - name: config-map
+          configMap:
+            name: {{ include "fusion.api-gateway.fullname" . }}
         - name: secrets
           secret:
             secretName: service-account-key
@@ -96,9 +99,8 @@ spec:
           privileged: false
         args:
           - "--spring.profiles.active={{ include "fusion.api-gateway.springProfs" . }}{{- if $tlsEnabled }},tls{{- end }}{{- if $jsonOutput }},logjson{{- end }}{{- if $logstashHost }},logstash{{- end }}{{- if $logPulsar }},logpulsar{{- end }}"
-          - "--spring.cloud.kubernetes.config.name={{ include "fusion.api-gateway.fullname" . }}"
           - "--spring.cloud.kubernetes.secrets.paths=/etc/secrets"
-          - "--spring.cloud.config.enabled=false"
+          - "--spring.cloud.kubernetes.config.enableApi=false"
           - "--spring.application.version={{ .Values.image.tag }}"
         {{- if .Values.secrets }}
         envFrom:
@@ -160,6 +162,8 @@ spec:
             exec:
               command: ["sleep", "{{ .Values.preStopSleepTime }}"]
         volumeMounts:
+          - mountPath: /config/application-kubernetes.yaml
+            name: config-map
           - name: "jks"
             mountPath: "/etc/ssl/keystores"
 {{ if $tlsEnabled }}

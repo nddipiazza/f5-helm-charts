@@ -50,7 +50,7 @@ image:
   imagePullSecrets: []
   pullPolicy: IfNotPresent
   repository: solr
-  tag: 8.8.2
+  tag: 8.11.1
 initContainer:
   image:
     repository: lucidworks

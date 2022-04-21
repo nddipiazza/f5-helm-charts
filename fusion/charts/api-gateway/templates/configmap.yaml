@@ -16,7 +16,7 @@ data:
       endpoints:
         web:
           exposure:
-            include: info, health, mappings, ready, prometheus
+            include: health, prometheus
     jwt:
       token:
         expirationSecs: {{ .Values.jwtExpirationSecs }}

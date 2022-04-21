@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: "fusion-resources"
 data:
-  fusion_version: "5.4.5"
+  fusion_version: "5.5.0"

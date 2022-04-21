@@ -8,8 +8,5 @@ description: A helm chart to install the api-gateway component
 keywords:
 - fusion
 - api-gateway
-maintainers:
-- email: ian.thebridge@lucidworks.com
-  name: Ian Thebridge
 name: api-gateway
-version: 1.10.13
+version: 1.11.3
