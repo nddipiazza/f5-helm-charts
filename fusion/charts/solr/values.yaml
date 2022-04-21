@@ -10,6 +10,7 @@ autoscaling:
     type: Resource
   minReplicas: 1
 config:
+  solrlog4j: ""
   solrxml: ""
 exporter:
   affinity: {}

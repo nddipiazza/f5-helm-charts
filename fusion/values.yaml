@@ -22,7 +22,7 @@ admin-ui:
     imagePullSecrets: []
     name: admin-ui
     repository: lucidworks
-    tag: 5.4.3
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -109,7 +109,7 @@ api-gateway:
     imagePullSecrets: []
     name: api-gateway
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   ingress:
     annotations: {}
     enabled: false
@@ -449,7 +449,7 @@ argo-common-workflows:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   nodeSelector:
     default: {}
@@ -492,7 +492,7 @@ auth-ui:
     imagePullSecrets: []
     name: auth-ui
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -565,7 +565,7 @@ classic-rest-service:
     name: classic-rest-service
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
@@ -652,7 +652,7 @@ classification:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   nodeSelector:
     default: {}
@@ -722,9 +722,10 @@ connector-plugin:
     name: connector-plugin
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:MaxRAMPercentage=40.0 -Xss256k
     -Dhttp.maxConnections=1000 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps
+    -XX:+StartAttachListener -Djdk.attach.allowAttachSelf=true
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -830,7 +831,7 @@ connectors:
     name: connectors
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
@@ -935,9 +936,10 @@ connectors-backend:
     name: connectors-backend
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps
+    -XX:+StartAttachListener -Djdk.attach.allowAttachSelf=true
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -1048,7 +1050,7 @@ devops-ui:
     imagePullSecrets: []
     name: devops-ui
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -1121,7 +1123,7 @@ fusion-admin:
     name: fusion-api
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   ingress:
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -1216,7 +1218,7 @@ fusion-data-augmentation:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   loguruLogLevel: INFO
   nodeSelector:
@@ -1262,7 +1264,7 @@ fusion-indexing:
     imagePullSecrets: []
     name: fusion-indexing
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -Xms512m -Xmx1g -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
     image:
@@ -1351,7 +1353,7 @@ fusion-jupyter:
     imagePullSecrets: []
     name: fusion-jupyter
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   mountPath:
     notebook: /home/jovyan/work
@@ -1400,7 +1402,7 @@ fusion-log-forwarder:
     name: fusion-log-forwarder
     pullPolicy: Always
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -1529,7 +1531,7 @@ fusion-superset:
     name: fusion-superset
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   ingress:
     annotations: {}
     enabled: false
@@ -1684,7 +1686,7 @@ insights:
     imagePullSecrets: []
     name: insights
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   livenessProbe:
     initialDelaySeconds: 20
     periodSeconds: 10
@@ -1746,7 +1748,7 @@ job-launcher:
     imagePullSecrets: []
     name: job-launcher
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -1849,7 +1851,7 @@ job-rest-server:
     imagePullSecrets: []
     name: job-rest-server
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -2079,7 +2081,7 @@ ml-model-service:
     imagePullSecrets: []
     name: ml-model-service
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaService:
     imageName: ml-model-service
     resources: {}
@@ -2487,7 +2489,7 @@ pm-ui:
     imagePullSecrets: []
     name: pm-ui
     repository: lucidworks
-    tag: 5.4.3
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -2680,7 +2682,6 @@ pulsar:
       deduplicationEnabled: "false"
       defaultRetentionSizeInMB: "5120"
       defaultRetentionTimeInMinutes: "1440"
-      exposeTopicLevelMetricsInPrometheus: "true"
       managedLedgerDefaultAckQuorum: "2"
       managedLedgerDefaultEnsembleSize: "2"
       managedLedgerDefaultWriteQuorum: "2"
@@ -2810,7 +2811,7 @@ pulsar:
     imagePullSecrets: []
     name: fusion-pulsar-proxy
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   images:
     autorecovery:
       pullPolicy: IfNotPresent
@@ -3088,7 +3089,7 @@ query-pipeline:
     imagePullSecrets: []
     name: query-pipeline
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -3180,7 +3181,7 @@ question-answering:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   nodeSelector:
     coldstart:
@@ -3240,7 +3241,7 @@ recommender:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   logstashEnabled: true
   nodeSelector:
     content:
@@ -3295,7 +3296,7 @@ rules-ui:
     imagePullSecrets: []
     name: rules-ui
     repository: lucidworks
-    tag: 5.4.3
+    tag: 5.4.4
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -3483,6 +3484,7 @@ solr:
       type: Resource
     minReplicas: 1
   config:
+    solrlog4j: ""
     solrxml: ""
   exporter:
     affinity: {}
@@ -3873,7 +3875,7 @@ solr-backup-runner:
     name: solr-backup-runner
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   localBackupDirectory: /mnt/solr-backups/collection-backups
   logstashEnabled: true
   prune:
@@ -3928,7 +3930,7 @@ sql-service:
     imagePullSecrets: []
     name: sql-service
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   jvmOptions: -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC -XX:+PrintGC -Xloggc:/work/sql-gc-%t.log
     -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=2M -Xms4g
     -Xmx4g
@@ -4039,7 +4041,7 @@ templating:
     imagePullSecrets: []
     name: templating
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: ""
   keytoolUtils:
     image:
@@ -4204,7 +4206,7 @@ webapps:
     imagePullSecrets: []
     name: webapps
     repository: lucidworks
-    tag: 5.4.2
+    tag: 5.4.4
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -Xmx1g
   keytoolUtils:
     image:

@@ -1,5 +1,5 @@
 {{- if .Values.rbac.create -}}
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 {{- if .Values.scope.singleNamespace }}
 kind: Role
 {{- else }}
@@ -41,6 +41,12 @@ rules:
   - apiGroups: [ "extensions" ]
     resources: [ "ingresses/status" ]
     verbs: ["update"]
+  - apiGroups: [ "extensions" ]
+    resources: [ "ingresses/status" ]
+    verbs: ["update"]
+  - apiGroups: [ "networking.k8s.io" ]
+    resources: [ "ingresses" ]
+    verbs: ["get", "list", "watch"]
   {{- if .Values.pro.enabled }}
   - apiGroups: [""]
     resources: [ "secrets" ]
@@ -54,7 +60,7 @@ rules:
       {{- toYaml .Values.rbac.podSecurityPolicies | nindent 6 }}
   {{- end }}
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 {{- if .Values.scope.singleNamespace }}
 kind: RoleBinding
 {{- else }}

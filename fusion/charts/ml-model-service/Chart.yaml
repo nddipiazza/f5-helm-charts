@@ -6,7 +6,7 @@ dependencies:
   version: 1.5.1
 - name: ambassador
   repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 5.3.0
+  version: 5.3.2
 - condition: milvus.enabled
   name: milvus
   repository: https://milvus-io.github.io/milvus-helm/
@@ -19,4 +19,4 @@ maintainers:
 - email: tim.potter@lucidworks.com
   name: Timothy Potter
 name: ml-model-service
-version: 1.20.0
+version: 1.20.3

@@ -44,6 +44,11 @@ spec:
       - podSelector:
           matchLabels:
             app: pulsar
+            component: {{ .Values.pulsar_manager.component }}
+            release: {{ .Release.Name }}
+      - podSelector:
+          matchLabels:
+            app: pulsar
             component: {{ .Values.proxy.component }}
             release: {{ .Release.Name }}
       - podSelector:

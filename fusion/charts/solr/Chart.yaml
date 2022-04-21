@@ -10,4 +10,4 @@ maintainers:
 name: solr
 sources:
 - https://gitbox.apache.org/repos/asf?p=lucene-solr.git
-version: 2.7.12
+version: 2.7.13

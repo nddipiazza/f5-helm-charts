@@ -88,6 +88,5 @@ app.kubernetes.io/name: "{{ template "fusion.sql-service.name" . }}"
 app.kubernetes.io/managed-by: "{{ .Release.Service }}"
 app.kubernetes.io/instance: "{{ .Release.Name }}"
 app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
-app.kubernetes.io/component: "sql-service"
 app.kubernetes.io/part-of: "fusion"
 {{- end -}}

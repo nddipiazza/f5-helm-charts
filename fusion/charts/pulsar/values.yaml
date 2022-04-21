@@ -137,7 +137,6 @@ broker:
     deduplicationEnabled: "false"
     defaultRetentionSizeInMB: "5120"
     defaultRetentionTimeInMinutes: "1440"
-    exposeTopicLevelMetricsInPrometheus: "true"
     managedLedgerDefaultAckQuorum: "2"
     managedLedgerDefaultEnsembleSize: "2"
     managedLedgerDefaultWriteQuorum: "2"
