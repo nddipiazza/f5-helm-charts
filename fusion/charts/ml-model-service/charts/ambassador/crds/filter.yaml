@@ -8,7 +8,6 @@ metadata:
     "helm.sh/hook": crd-install
 spec:
   group: getambassador.io
-  version: v1beta2
   scope: Namespaced
   names:
     plural: filters

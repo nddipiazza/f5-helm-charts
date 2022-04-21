@@ -207,7 +207,7 @@ spec:
           cp conf/bookkeeper.conf "${PULSAR_BOOKKEEPER_CONF}";
           bin/apply-config-from-env.py "${PULSAR_BOOKKEEPER_CONF}";
           {{- include "pulsar.bookkeeper.zookeeper.tls.settings" . | nindent 10 }}
-          bin/pulsar bookie;
+          OPTS="${OPTS} -Dlog4j2.formatMsgNoLookups=true" exec bin/pulsar bookie;
         ports:
         - name: bookie
           containerPort: {{ .Values.bookkeeper.ports.bookie }}

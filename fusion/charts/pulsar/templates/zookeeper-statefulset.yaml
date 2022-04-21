@@ -52,7 +52,7 @@ spec:
           bin/apply-config-from-env.py conf/pulsar_env.sh;
           {{- include "pulsar.zookeeper.tls.settings" . | nindent 10 }}
           bin/generate-zookeeper-config.sh conf/zookeeper.conf;
-          bin/pulsar zookeeper;
+          OPTS="${OPTS} -Dlog4j2.formatMsgNoLookups=true" exec bin/pulsar zookeeper;
         ports:
         - name: client
           containerPort: {{ .Values.zookeeper.ports.client }}
