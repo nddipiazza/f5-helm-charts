@@ -6,6 +6,10 @@ artifactRepository:
     insecure: true
     secretKeySecret:
       key: secretkey
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 controller:
   affinity: {}
   containerRuntimeExecutor: docker
@@ -88,6 +92,10 @@ minio:
   certsPath: /etc/minio/certs/
   clusterDomain: cluster.local
   configPathmc: /etc/minio/mc/
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   defaultBucket:
     enabled: true
     name: argo-artifacts

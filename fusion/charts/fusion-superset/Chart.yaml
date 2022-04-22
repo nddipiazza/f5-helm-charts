@@ -6,4 +6,4 @@ dependencies:
   version: 1.5.1
 description: A repackaging of Apache Superset for Lucidworks Fusion 5.x
 name: fusion-superset
-version: 1.0.9
+version: 1.0.11

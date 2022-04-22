@@ -64,6 +64,7 @@ spec:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 10 }}
         {{- if not $tlsEnabled }}
         command:
           - /bin/sh

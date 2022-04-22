@@ -84,6 +84,7 @@ spec:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 10 }}
         env:
           - name: "SQL_JVM_OPTIONS"
             value: "{{ .Values.jvmOptions }}

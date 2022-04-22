@@ -10,6 +10,10 @@ autoscaling:
     type: Resource
   minReplicas: 1
 component: connectors-backend
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 deploymentStrategy:
   rollingUpdate:
     maxSurge: 25%

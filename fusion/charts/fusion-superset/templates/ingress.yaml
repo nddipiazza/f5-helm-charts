@@ -18,7 +18,7 @@
 {{- $fullName := include "superset.fullname" . -}}
 {{- $shortName := include "superset.name" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -39,8 +39,11 @@ spec:
   - host: {{ .Values.ingress.host }}
     http:
       paths:
-        - path: /
+        - pathType: {{ .Values.ingress.pathtype }}
+          path: {{ .Values.ingress.path }}
           backend:
-            serviceName: "{{ template "superset.serviceName" . }}-proxy"
-            servicePort: http
+            service:
+              name: "{{ template "superset.serviceName" . }}-proxy"
+              port:
+                number: {{ .Values.ingress.port }}
 {{- end }}

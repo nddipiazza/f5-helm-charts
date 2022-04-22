@@ -4,6 +4,10 @@ configMountPath: /app/pythonpath
 configOverrides:
   oltp_database: |
     SQLALCHEMY_DATABASE_URL = "sqlite://{{ .Values.internalDBPath }}"
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 envFromSecret: '{{ template "superset.fullname" . }}-env'
 extraConfigMountPath: /app/configs
 extraConfigs: {}
@@ -23,6 +27,8 @@ ingress:
   enabled: false
   host: ingress.example.com
   path: /
+  pathtype: Prefix
+  port: 80
   tls:
     enabled: false
 init:

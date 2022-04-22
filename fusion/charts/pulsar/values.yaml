@@ -228,6 +228,10 @@ components:
   pulsar_manager: false
   toolset: false
   zookeeper: false
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 dashboard:
   annotations: {}
   component: dashboard

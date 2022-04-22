@@ -76,6 +76,7 @@ spec:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 10 }}
         # args:
         #   -
         ports:

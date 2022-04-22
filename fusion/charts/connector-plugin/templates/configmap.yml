@@ -182,6 +182,8 @@ data:
                 runAsNonRoot: true
                 allowPrivilegeEscalation: false
                 privileged: false
+                capabilities:
+                  drop: ["NET_RAW"]
               volumeMounts:
                 - name: application-config-k8s
                   mountPath: "app/config"

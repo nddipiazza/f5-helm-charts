@@ -1,6 +1,10 @@
 affinity: {}
 config:
   springSecurity: ""
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 deploymentStrategy:
   rollingUpdate:
     maxSurge: 25%

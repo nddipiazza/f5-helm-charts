@@ -13,4 +13,4 @@ maintainers:
 name: pulsar
 sources:
 - https://github.com/apache/pulsar-helm-chart
-version: 2.6.11
+version: 2.6.12

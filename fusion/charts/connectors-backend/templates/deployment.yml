@@ -74,6 +74,7 @@ spec:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
             privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 12 }}
           volumeMounts:
             - name: application-config-k8s
               mountPath: "app/config"

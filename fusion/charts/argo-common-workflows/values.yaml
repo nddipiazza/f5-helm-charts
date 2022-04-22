@@ -13,6 +13,9 @@ resources:
   deploy:
     seldon: null
 securityContext:
+  capabilities:
+    drop:
+    - NET_RAW
   fsGroup: 8764
 tls:
   enabled: false

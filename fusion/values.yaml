@@ -9,6 +9,10 @@ admin-ui:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -22,7 +26,7 @@ admin-ui:
     imagePullSecrets: []
     name: admin-ui
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -92,6 +96,10 @@ api-gateway:
     resilience4j: ""
     security: ""
     springSecurity: ""
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
     port: 8126
@@ -109,7 +117,7 @@ api-gateway:
     imagePullSecrets: []
     name: api-gateway
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/server-snippet: |
@@ -216,6 +224,10 @@ argo:
       insecure: true
       secretKeySecret:
         key: secretkey
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   controller:
     affinity: {}
     containerRuntimeExecutor: docker
@@ -304,6 +316,10 @@ argo:
     certsPath: /etc/minio/certs/
     clusterDomain: cluster.local
     configPathmc: /etc/minio/mc/
+    containersSecurityContext:
+      capabilities:
+        drop:
+        - NET_RAW
     defaultBucket:
       enabled: true
       name: argo-artifacts
@@ -455,7 +471,7 @@ argo-common-workflows:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   nodeSelector:
     default: {}
@@ -466,6 +482,9 @@ argo-common-workflows:
     deploy:
       seldon: null
   securityContext:
+    capabilities:
+      drop:
+      - NET_RAW
     fsGroup: 8764
   tls:
     enabled: false
@@ -485,6 +504,10 @@ auth-ui:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -498,7 +521,7 @@ auth-ui:
     imagePullSecrets: []
     name: auth-ui
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -557,6 +580,10 @@ classic-rest-service:
   annotations: {}
   bootstrapEnabled: true
   component: classic-rest-service
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -571,7 +598,7 @@ classic-rest-service:
     name: classic-rest-service
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
@@ -658,7 +685,7 @@ classification:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   nodeSelector:
     default: {}
@@ -671,6 +698,9 @@ classification:
     seldon: null
     train: null
   securityContext:
+    capabilities:
+      drop:
+      - NET_RAW
     fsGroup: 8764
   tls:
     enabled: false
@@ -728,7 +758,7 @@ connector-plugin:
     name: connector-plugin
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:MaxRAMPercentage=40.0 -Xss256k
     -Dhttp.maxConnections=1000 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps
     -XX:+StartAttachListener -Djdk.attach.allowAttachSelf=true
@@ -823,6 +853,10 @@ connectors:
       type: Resource
     minReplicas: 1
   component: connectors
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -837,7 +871,7 @@ connectors:
     name: connectors
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
@@ -928,6 +962,10 @@ connectors-backend:
       type: Resource
     minReplicas: 1
   component: connectors-backend
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -942,7 +980,7 @@ connectors-backend:
     name: connectors-backend
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=75.0
     -Xss256k -Dhttp.maxConnections=1000 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps
     -XX:+StartAttachListener -Djdk.attach.allowAttachSelf=true
@@ -1043,6 +1081,10 @@ devops-ui:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -1056,7 +1098,7 @@ devops-ui:
     imagePullSecrets: []
     name: devops-ui
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -1120,6 +1162,10 @@ fusion-admin:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   fusion-common-utils:
     global: {}
   global: {}
@@ -1129,7 +1175,7 @@ fusion-admin:
     name: fusion-api
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   ingress:
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -1224,7 +1270,7 @@ fusion-data-augmentation:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   loguruLogLevel: INFO
   nodeSelector:
@@ -1254,6 +1300,10 @@ fusion-indexing:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
     port: 8126
@@ -1270,7 +1320,7 @@ fusion-indexing:
     imagePullSecrets: []
     name: fusion-indexing
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -Xms512m -Xmx1g -Xss256k -Dhttp.maxConnections=1000
   keytoolUtils:
     image:
@@ -1352,6 +1402,10 @@ fusion-indexing:
   zkTLSPort: 2281
 fusion-jupyter:
   affinity: {}
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   enabled: false
   global: {}
   image:
@@ -1359,7 +1413,7 @@ fusion-jupyter:
     imagePullSecrets: []
     name: fusion-jupyter
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   mountPath:
     notebook: /home/jovyan/work
@@ -1408,7 +1462,7 @@ fusion-log-forwarder:
     name: fusion-log-forwarder
     pullPolicy: Always
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -1521,6 +1575,10 @@ fusion-superset:
   configOverrides:
     oltp_database: |
       SQLALCHEMY_DATABASE_URL = "sqlite://{{ .Values.internalDBPath }}"
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   enabled: false
   envFromSecret: '{{ template "superset.fullname" . }}-env'
   extraConfigMountPath: /app/configs
@@ -1537,12 +1595,14 @@ fusion-superset:
     name: fusion-superset
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   ingress:
     annotations: {}
     enabled: false
     host: ingress.example.com
     path: /
+    pathtype: Prefix
+    port: 80
     tls:
       enabled: false
   init:
@@ -1692,7 +1752,7 @@ insights:
     imagePullSecrets: []
     name: insights
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   livenessProbe:
     initialDelaySeconds: 20
     periodSeconds: 10
@@ -1736,6 +1796,10 @@ job-launcher:
   config:
     springSecurity: ""
   configSources: []
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
   deploymentStrategy:
@@ -1754,7 +1818,7 @@ job-launcher:
     imagePullSecrets: []
     name: job-launcher
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -1842,6 +1906,10 @@ job-rest-server:
   affinity: {}
   config:
     springSecurity: ""
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
   deploymentStrategy:
@@ -1857,7 +1925,7 @@ job-rest-server:
     imagePullSecrets: []
     name: job-rest-server
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -2060,6 +2128,10 @@ ml-model-service:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -2087,7 +2159,7 @@ ml-model-service:
     imagePullSecrets: []
     name: ml-model-service
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaService:
     imageName: ml-model-service
     resources: {}
@@ -2425,7 +2497,7 @@ ml-model-service:
       imagePullSecrets: []
       name: kubectl
       repository: bitnami
-      tag: latest
+      tag: 1.21.11
     resources: {}
   pulsarPort: "8080"
   pulsarServicePort: "6650"
@@ -2482,6 +2554,10 @@ pm-ui:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -2495,7 +2571,7 @@ pm-ui:
     imagePullSecrets: []
     name: pm-ui
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -2779,6 +2855,10 @@ pulsar:
     pulsar_manager: false
     toolset: false
     zookeeper: false
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   dashboard:
     annotations: {}
     component: dashboard
@@ -2817,7 +2897,7 @@ pulsar:
     imagePullSecrets: []
     name: fusion-pulsar-proxy
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   images:
     autorecovery:
       pullPolicy: IfNotPresent
@@ -3079,6 +3159,10 @@ query-pipeline:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
     port: 8126
@@ -3095,7 +3179,7 @@ query-pipeline:
     imagePullSecrets: []
     name: query-pipeline
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError
   keytoolUtils:
     image:
@@ -3181,13 +3265,17 @@ query-pipeline:
   zkReplicaCount: 3
   zkTLSPort: 2281
 question-answering:
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   global: {}
   image:
     debug: false
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   nodeSelector:
     coldstart:
@@ -3242,12 +3330,16 @@ question-answering:
       sparkSolrEtl: null
       train: null
 recommender:
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   global: {}
   image:
     imagePullPolicy: IfNotPresent
     imagePullSecrets: []
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   logstashEnabled: true
   nodeSelector:
     content:
@@ -3289,6 +3381,10 @@ rules-ui:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -3302,7 +3398,7 @@ rules-ui:
     imagePullSecrets: []
     name: rules-ui
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   keytoolUtils:
     image:
       imagePullPolicy: IfNotPresent
@@ -3534,6 +3630,10 @@ solr:
   config:
     solrlog4j: ""
     solrxml: ""
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   exporter:
     affinity: {}
     configDir: /opt/solr/contrib/prometheus-exporter/conf
@@ -3672,6 +3772,10 @@ solr:
     - if [ -d /data/data/version-2/ ]; then if ! ls /data/data/version-2/snapshot*
       > /dev/null 2>&1; then wget -O /data/data/version-2/snapshot.0 https://issues.apache.org/jira/secure/attachment/12928686/snapshot.0;
       fi; fi && /config-scripts/run
+    containersSecurityContext:
+      capabilities:
+        drop:
+        - NET_RAW
     enabled: false
     env:
       JMXAUTH: "false"
@@ -3923,7 +4027,7 @@ solr-backup-runner:
     name: solr-backup-runner
     pullPolicy: IfNotPresent
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   localBackupDirectory: /mnt/solr-backups/collection-backups
   logstashEnabled: true
   prune:
@@ -3965,6 +4069,10 @@ sql-service:
   affinity: {}
   config:
     springSecurity: ""
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -3978,7 +4086,7 @@ sql-service:
     imagePullSecrets: []
     name: sql-service
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   jvmOptions: -XX:+ExitOnOutOfMemoryError -XX:+UseG1GC -XX:+PrintGC -Xloggc:/work/sql-gc-%t.log
     -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=2M -Xms4g
     -Xmx4g
@@ -4073,6 +4181,10 @@ templating:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   datadog:
     enabled: false
     port: 8126
@@ -4089,7 +4201,7 @@ templating:
     imagePullSecrets: []
     name: templating
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: ""
   keytoolUtils:
     image:
@@ -4170,6 +4282,10 @@ templating:
   zkTLSPort: 2281
 tikaserver:
   affinity: {}
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   extractInlineImages: false
   fusion-common-utils:
     global: {}
@@ -4241,6 +4357,10 @@ webapps:
         targetAverageUtilization: 70
       type: Resource
     minReplicas: 1
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   deploymentStrategy:
     rollingUpdate:
       maxSurge: 25%
@@ -4254,7 +4374,7 @@ webapps:
     imagePullSecrets: []
     name: webapps
     repository: lucidworks
-    tag: 5.5.0
+    tag: 5.5.1
   javaToolOptions: -XX:+ExitOnOutOfMemoryError -Xmx1g
   keytoolUtils:
     image:
@@ -4333,6 +4453,10 @@ zookeeper:
   - if [ -d /data/data/version-2/ ]; then if ! ls /data/data/version-2/snapshot* >
     /dev/null 2>&1; then wget -O /data/data/version-2/snapshot.0 https://issues.apache.org/jira/secure/attachment/12928686/snapshot.0;
     fi; fi && /config-scripts/run
+  containersSecurityContext:
+    capabilities:
+      drop:
+      - NET_RAW
   env:
     JMXAUTH: "false"
     JMXDISABLE: "false"

@@ -105,6 +105,8 @@ spec:
               path: "/metrics"
               port: {{ .Values.exporter.port }}
           {{- if .Values.exporter.configXml }}
+          securityContext:
+{{- .Values.containersSecurityContext | toYaml | nindent 12 }}
           volumeMounts:
             - name: exporter-config
               readOnly: true

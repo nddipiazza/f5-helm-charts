@@ -90,6 +90,7 @@ spec:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
             privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 12 }}
           env:
             - name: "COMPONENT"
               value: "fusion-admin"

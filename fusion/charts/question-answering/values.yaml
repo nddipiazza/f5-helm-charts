@@ -1,3 +1,7 @@
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 image:
   debug: false
   imagePullPolicy: IfNotPresent

@@ -126,6 +126,10 @@ autoscaling:
       targetAverageUtilization: 70
     type: Resource
   minReplicas: 1
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 deploymentStrategy:
   rollingUpdate:
     maxSurge: 25%
@@ -489,7 +493,7 @@ preinstall:
     imagePullSecrets: []
     name: kubectl
     repository: bitnami
-    tag: latest
+    tag: 1.21.11
   resources: {}
 pulsarPort: "8080"
 pulsarServicePort: "6650"

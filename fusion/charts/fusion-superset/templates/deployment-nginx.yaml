@@ -32,6 +32,7 @@ spec:
             #            readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.proxy.service.port }}

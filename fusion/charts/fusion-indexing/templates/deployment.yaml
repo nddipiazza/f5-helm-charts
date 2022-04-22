@@ -76,6 +76,7 @@ spec:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           privileged: false
+{{- .Values.containersSecurityContext | toYaml | nindent 10 }}
         args:
           - "--spring.profiles.active={{ include "fusion.fusion-indexing.springProfs" . }}{{- if $tlsEnabled }},tls{{- end }}{{- if $jsonOutput }},logjson{{- end }}{{- if $logstashHost }},logstash{{- end }}{{- if $logPulsar }},logpulsar{{- end }}"
           - "--spring.cloud.kubernetes.config.name={{ include "fusion.fusion-indexing.fullname" . }}"

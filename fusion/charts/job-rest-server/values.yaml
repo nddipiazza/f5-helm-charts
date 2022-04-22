@@ -2,6 +2,10 @@ accessLogEnabled: false
 affinity: {}
 config:
   springSecurity: ""
+containersSecurityContext:
+  capabilities:
+    drop:
+    - NET_RAW
 datadog:
   enabled: false
 deploymentStrategy:
