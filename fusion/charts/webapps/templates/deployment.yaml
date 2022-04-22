@@ -113,12 +113,8 @@ spec:
             name: "jetty"
 
         readinessProbe:
-          httpGet:
-            path: /actuator/health
-            port: jetty
-{{- if $tlsEnabled }}
-            scheme: HTTPS
-{{- end }}
+          tcpSocket:
+            port: "jetty"
           initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
           timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
@@ -128,12 +124,8 @@ spec:
         livenessProbe:
           initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-          httpGet:
-            path: /actuator/health
+          tcpSocket:
             port: "jetty"
-{{- if $tlsEnabled }}
-            scheme: HTTPS
-{{- end }}
         lifecycle:
           preStop:
             exec:
